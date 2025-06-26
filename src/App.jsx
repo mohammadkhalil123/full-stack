@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     console.log('effect')
     axios
-      .get('http://localhost:3001/notes')
+      .get('/notes')
       .then(response => {
         console.log('promise fulfilled')
         setNotes(response.data)
@@ -31,7 +31,7 @@ const App = () => {
     }
 
     axios
-      .post("http://localhost:3001/notes",newObject)
+      .post("/notes",newObject)
       .then(response=>{
         setNotes(notes.concat(response.data))
         setNewNote("")
@@ -45,7 +45,7 @@ const App = () => {
   const toggleImportance = (id) => {
     const note=notes.find(n=>n.id===id)
     const changedNote={...note,important:!note.important}
-    const url = `http://localhost:3001/notes/${id}`
+    const url = `/notes/${id}`
 
     axios
       .put(url,changedNote)
