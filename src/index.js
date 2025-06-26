@@ -30,7 +30,7 @@ let notes = [
 ];
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, 'dist', 'index.html'));
+  response.sendFile(path.join(__dirname, '../dist', 'index.html'));
 });
 
 app.get('/notes',(request,response) => {
