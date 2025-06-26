@@ -27,7 +27,11 @@ let notes = [
     content: "GET and POST are the most important methods of HTTP protocol",
     important: true
   }
-]
+];
+
+app.get('/', (request, response) => {
+  response.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
 app.get('/notes',(request,response) => {
   response.json(notes);
